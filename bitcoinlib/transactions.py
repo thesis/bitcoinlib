@@ -1826,7 +1826,7 @@ class Transaction:
         if lock_script.startswith(b'\x6a'):
             if value != 0:
                 raise TransactionError("Output value for OP_RETURN script must be 0")
-        elif value < self.network.dust_amount:
+        # elif value < self.network.dust_amount:
             # raise TransactionError("Output must be more then dust amount %d" % self.network.dust_amount)
         self.outputs.append(Output(value=int(value), address=address, public_hash=public_hash,
                                    public_key=public_key, lock_script=lock_script, spent=spent, output_n=output_n,
